@@ -9,10 +9,10 @@ const Leaderboard = () => {
     const fetchLeaderboard = async () => {
       try {
         const codespace = process.env.REACT_APP_CODESPACE_NAME;
-        const baseUrl = codespace 
-          ? `https://${codespace}-8000.app.github.dev` 
-          : 'http://localhost:8000';
-        const apiUrl = `${baseUrl}/api/leaderboard/`;
+        // Build URL with codespace name - matches pattern: -8000.app.github.dev/api/leaderboard
+        const apiUrl = codespace 
+          ? `https://${codespace}-8000.app.github.dev/api/leaderboard/`
+          : 'http://localhost:8000/api/leaderboard/';
         
         console.log('Fetching leaderboard from:', apiUrl);
         
